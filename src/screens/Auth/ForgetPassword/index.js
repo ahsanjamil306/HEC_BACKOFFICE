@@ -1,6 +1,5 @@
 import {Alert, SafeAreaView, View, Text} from 'react-native';
 import React, {useState} from 'react';
-import auth from '@react-native-firebase/auth';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 // components
@@ -24,18 +23,6 @@ const ForgetPassword = ({navigation}) => {
   const [email, setEmail] = useState('');
   const sendPressed = values => {
     setLoader(true);
-    auth()
-      .sendPasswordResetEmail(values.email)
-      .then(res => {
-        setEmail(values.email);
-        setEmailSet(true);
-      })
-      .catch(er => {
-        SimpleToast.show(er?.code?.substring(5), SimpleToast.SHORT);
-      })
-      .finally(() => {
-        setLoader(false);
-      });
   };
 
   return (

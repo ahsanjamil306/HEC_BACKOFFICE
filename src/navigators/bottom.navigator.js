@@ -1,17 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Image, View, Dimensions, Text} from 'react-native';
-import {Images} from '../assets/images';
 
 //Screens
-import Notifications from '../screens/App/Notifications';
-import Profile from '../screens/App/Profile';
-import Home from '../screens/App/Home/index';
-import Icons from '../assets/Icons';
-import Size from '../constants/Size';
+import Icons from '../assets/icons';
+import Size from '../constants/size';
 import color from '../constants/color';
-import GlobalStyle from '../constants/GlobalStyle';
+import GlobalStyle from '../constants/globalStyle';
 
 // dimenstion
 const {width, height} = Dimensions.get('window');
@@ -118,28 +114,6 @@ export const BottomNavigator = ({}) => {
           backgroundColor: color.BACKGROUND,
           minHeight: Size.HEADER_FOOTER_SIZE,
         },
-      }}>
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: homeIcon,
-        }}
-      />
-      <Stack.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          tabBarIcon: notificationsIcon,
-        }}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: profileIcon,
-        }}
-      />
-    </Tab.Navigator>
+      }}></Tab.Navigator>
   );
 };

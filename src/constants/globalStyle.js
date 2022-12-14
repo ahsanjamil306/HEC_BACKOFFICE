@@ -1,6 +1,6 @@
 import {Platform, StyleSheet} from 'react-native';
 import color from './color';
-import Size from './Size';
+import Size from './size';
 
 export default StyleSheet.create({
   TEXT_STYLE: {
