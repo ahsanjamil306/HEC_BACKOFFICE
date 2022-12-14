@@ -1,20 +1,16 @@
-import {StyleSheet, Dimensions} from 'react-native';
-
-//Color
+import {StyleSheet} from 'react-native';
 import color from '../../../constants/color';
-import GlobalStyle from '../../../constants/globalStyle';
 import Size from '../../../constants/size';
-
+import GlobalStyles from '../../../constants/globalStyle';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: color.BACKGROUND,
   },
-  postsText: {
+  notificationsText: {
     marginTop: Size.PADDING,
-    ...GlobalStyle.TEXT_STYLE_BOLD,
+    marginHorizontal: Size.PADDING,
+    ...GlobalStyles.TEXT_STYLE_BOLD,
     fontSize: Size.FONTSIZE_LARGE,
     marginBottom: Size.PADDING,
   },

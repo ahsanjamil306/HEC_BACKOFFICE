@@ -1,31 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import {Text, Dimensions, SafeAreaView, ScrollView} from 'react-native';
+import {View, Text, ImageBackground, Image, SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
+import styles from './styles';
+import {Images} from '../../../assets/images';
+import Icons from '../../../assets/Icons';
+import CustomButtonComponent from '../../../components/global/CustomButtonComponent';
+import Size from '../../../constants/size';
 
-//local imports
-import Header from '../../../components/Header.component';
-import styles from './style';
-import MyStatusBar from '../../../components/StatusBar';
-
-//third party library
-
-// dimenstion
-const {width, height} = Dimensions.get('window');
-
-const Index = ({navigation, ...props}) => {
+const Intro = ({navigation}) => {
+  const navigate = () => {
+    navigation.replace('SignIn');
+  };
+  useEffect(() => {
+    // less time for loading
+    setTimeout(navigate, 1000);
+  });
   return (
-    <>
-      <MyStatusBar backgroundColor="#F6F9FE" />
-      <SafeAreaView style={styles.container}>
-        <Header HeadTxt={'Splash'} />
-        <ScrollView
-          contentContainerStyle={styles.contStyle}
-          showsVerticalScrollIndicator={false}>
-          <Text style={styles.txt1}>Splash</Text>
-        </ScrollView>
-      </SafeAreaView>
-      {/* {loader && <Loader />} */}
-    </>
+    <SafeAreaView style={styles.container}>
+      <Image source={Icons.LOGO} style={styles.Logo} />
+    </SafeAreaView>
   );
 };
 
-export default Index;
+export default Intro;

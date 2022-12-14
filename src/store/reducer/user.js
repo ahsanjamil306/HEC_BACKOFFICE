@@ -1,51 +1,32 @@
-import {
-  USER_LOGOUT,
-  USER_LOGIN,
-  EMAIL_VERIFY,
-  PHONE_VERIFY,
-  INTRO_DONE,
-} from '../actionType';
+import {createSlice} from '@reduxjs/toolkit';
+import {act} from 'react-test-renderer';
 
-// init state
-const initState = {
-  userData: {},
-  isLogin: false,
-  email: false,
-  phone: false,
-  intro: false,
+const userDummy = {
+  name: 'Ali Kalhoro',
+  location: 'Karachi-Pakistan',
+  image: {
+    uri: 'https://i.pinimg.com/736x/ed/62/d1/ed62d1454afa54e1b50b770778ae21d6.jpg',
+  },
+  email: 'alikalhoro@gmail.com',
 };
 
-export default reducer = (state = initState, action) => {
-  switch (action.type) {
-    case USER_LOGOUT:
-      return {
-        ...state,
-        isLogin: false,
-        userData: {},
-      };
-    case USER_LOGIN:
-      return {
-        ...state,
-        isLogin: true,
-        userData: action.userData,
-        token: action.token,
-      };
-    case EMAIL_VERIFY:
-      return {
-        ...state,
-        email: action.isEmailVerified,
-      };
-    case PHONE_VERIFY:
-      return {
-        ...state,
-        phone: action.isPhoneoVerified,
-      };
-    case INTRO_DONE:
-      return {
-        ...state,
-        intro: action.isIntroDone,
-      };
-    default:
-      return state;
-  }
-};
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {data: userDummy},
+  reducers: {
+    login: (state, action) => {
+      state.data = action.payload;
+    },
+    logout: state => {
+      state.data = {};
+    },
+    updateUser: (state, action) => {
+      state.data = action.payload;
+    },
+  },
+});
+
+export const userLogin = userSlice.actions.login;
+export const userLogout = userSlice.actions.logout;
+export const updateUser = userSlice.actions.updateUser;
+export default userSlice.reducer;

@@ -1,8 +1,7 @@
 const _Environments = {
   development: {
-    BASE_URL: `https://xxx.xxx.xxx.com/api`,
+    BASE_URL: `https://hec-rn-default-rtdb.firebaseio.com/`,
     LOGIN: `/xxx/xxx`,
-    
   },
 };
 
